@@ -11,14 +11,14 @@ describe('Validação Login', () => {
 
 
   it('Acessar URL com sucesso', () => {
-    cy.visit('https://automationexercise.com/')
-    cy.get('div[class="logo pull-left"]').should('be.visible')
+    cy.visit("/")
+    cy.get('div[class="logo pull-leftt"]').should('be.visible')
     cy.title().should('be.eq','Automation Exercise')
   })
 
-  it.only('Cadastrar novo usuário', () => {
+  it('Cadastrar novo usuário', () => {
     //Acessar a aplicação
-    cy.visit('https://automationexercise.com/')
+    cy.visit("/")
     cy.get('div[class="logo pull-left"]').should('be.visible')
     cy.title().should('be.eq','Automation Exercise')
     cy.get('a').contains('Signup / Login').click()
@@ -40,6 +40,7 @@ describe('Validação Login', () => {
     cy.get("#state").type("Arizona")
     cy.get("#city").type("Phoenix")
     cy.get("#zipcode").type("85001")
+    cy.get("#mobile_number").clear()
     cy.get("#mobile_number").type("89719827123")
     //cy.get("button").contains("Create Account").click()
     //Validação do Resultado Esperado

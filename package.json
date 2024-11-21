@@ -4,7 +4,9 @@
   "description": "Projeto Capacitacao cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "web": "cypress open",
+    "back": "cypress run -b chrome",
+    "mobile": "cypress run -b chrome --config viewportWidth=400,viewportHeight=800"
   },
   "author": "",
   "license": "ISC",
