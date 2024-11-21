@@ -1,31 +1,40 @@
 /// <reference types = "Cypress" />
 import user_fac from '../Factories/user_fac.js'
+import homePage from '../support/pages/homePage';
+import loginPage from '../support/pages/loginPage/index.js';
 
 describe('Validação Login', () => {
   let newUser = user_fac.createUser();
-  // beforeEach(()=>{
-  //   cy.fixture('user_fixture').then((user)=>{
-  //     newUser = user;
-  //   })
-  // })
+
+   beforeEach(()=>{
+    homePage.acessarUrl()
+    homePage.validarLogoHome()
+   })
 
 
   it('Acessar URL com sucesso', () => {
-    cy.visit("/")
-    cy.get('div[class="logo pull-leftt"]').should('be.visible')
-    cy.title().should('be.eq','Automation Exercise')
+    //cy.visit("/")
+    //cy.get('div[class="logo pull-leftt"]').should('be.visible')
+    //cy.title().should('be.eq','Automation Exercise')
+    HomePage.acessarUrl()
+    HomePage.validarLogoHome()
+    HomePage.validarTituloDaPagina()
   })
 
-  it('Cadastrar novo usuário', () => {
+  it.only('Cadastrar novo usuário', () => {
     //Acessar a aplicação
-    cy.visit("/")
-    cy.get('div[class="logo pull-left"]').should('be.visible')
-    cy.title().should('be.eq','Automation Exercise')
-    cy.get('a').contains('Signup / Login').click()
+    //cy.visit("/")
+    //cy.get('div[class="logo pull-left"]').should('be.visible')
+    //cy.title().should('be.eq','Automation Exercise')
+    //cy.get('a').contains('Signup / Login').click()
+    homePage.clicarEmLogin()
     //Passos, ações a serem executadas
-    cy.get('input[name = "name"]').should('be.visible').type(newUser.nome)
-    cy.get('input[data-qa="signup-email"]').should('be.visible').type(newUser.email)
-    cy.get('button').contains('Signup').click()
+    //cy.get('input[name = "name"]').should('be.visible').type(newUser.nome)
+    //cy.get('input[data-qa="signup-email"]').should('be.visible').type(newUser.email)
+    //cy.get('button').contains('Signup').click()
+    loginPage.preencherNome(newUser.nome)
+    loginPage.preencherEmail(newUser.email)
+    loginPage.clicarEmSignup()
     cy.get('h2').contains('Enter Account Information').should('be.visible')
     cy.get('#id_gender2').click()
     cy.get("#email").should('have.value', newUser.email)
