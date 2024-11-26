@@ -17,5 +17,9 @@ class HomePage {
     clicarEmLogin(){
         cy.get(elem.signup_login).should('be.visible').click()
     }
+
+    validarBotaoLogoutVisivel(){
+        cy.get(elem.btn_logout).should('be.visible')
+    }
 }
 export default new HomePage();
