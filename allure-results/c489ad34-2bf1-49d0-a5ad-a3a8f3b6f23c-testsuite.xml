@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1732826458887' stop='1732826483386'>
+    <name>Validação Login</name>
+    <title>Validação Login</title>
+    <test-cases>
+        <test-case start='1732826458888' status='passed' stop='1732826482375'>
+            <name>Validar login</name>
+            <title>Validar login</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1732826482466' status='broken' stop='1732826483280'>
+            <name>Acessar URL com sucesso</name>
+            <title>Acessar URL com sucesso</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>HomePage is not defined</message>
+                <stack-trace>ReferenceError: HomePage is not defined
+                    at Context.eval (webpack://automation-exercise/./cypress/e2e/AcessarUrl.cy.js:30:4)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1732826483366' status='pending' stop='1732826483366'>
+            <name>Cadastrar novo usuário</name>
+            <title>Cadastrar novo usuário</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Test ignored</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1732826483366' status='undefined'>
+            <name>Cadastrar novo usuário</name>
+            <title>Cadastrar novo usuário</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

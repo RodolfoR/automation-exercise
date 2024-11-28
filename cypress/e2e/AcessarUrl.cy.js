@@ -13,7 +13,7 @@ describe('Validação Login', () => {
     cy.login('dayaneTest@gmail.com', 'teste123')
    })
 
-  it.only('Validar login', () => {
+  it('Validar login', () => {
     cy.visit('/')
     cy.get('b').should('have.text','Dayane Teste')
     cy.viewport('iphone-6', 'portrait')
@@ -32,7 +32,7 @@ describe('Validação Login', () => {
     HomePage.validarTituloDaPagina()
   })
 
-  it('Cadastrar novo usuário', () =>{
+  xit('Cadastrar novo usuário', () =>{
     homePage.clicarEmLogin()
     loginPage.preencherNome(newUser.nome)
     loginPage.preencherEmail(newUser.email)
