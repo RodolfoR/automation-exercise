@@ -8,9 +8,22 @@ describe('Validação Login', () => {
   let newUser = user_fac.createUser();
 
    beforeEach(()=>{
-    homePage.acessarUrl()
-    homePage.validarLogoHome()
+    // homePage.acessarUrl()
+    // homePage.validarLogoHome()
+    cy.login('dayaneTest@gmail.com', 'teste123')
    })
+
+  it.only('Validar login', () => {
+    cy.visit('/')
+    cy.get('b').should('have.text','Dayane Teste')
+    cy.viewport('iphone-6', 'portrait')
+    cy.get("a").contains('Home').should('have.css', 'color', 'rgb(255, 165, 0)')
+    cy.get("a").contains('Home').should('have.css', 'font-size', '14px')
+
+    cy.get('img[src="/get_product_picture/1"]').invoke('removeAttr', 'style')
+    //cy.get('img').should('have.attr', 'src', "get_product_picture/1").trigger('mousemove')
+
+  })
 
 
   it('Acessar URL com sucesso', () => {
@@ -19,7 +32,7 @@ describe('Validação Login', () => {
     HomePage.validarTituloDaPagina()
   })
 
-  it.only('Cadastrar novo usuário', () =>{
+  it('Cadastrar novo usuário', () =>{
     homePage.clicarEmLogin()
     loginPage.preencherNome(newUser.nome)
     loginPage.preencherEmail(newUser.email)
